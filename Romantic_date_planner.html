@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Date Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ffebee, #fce4ec);
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L90 90 L10 90 Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        header p {
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            background: white;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        h2 {
+            color: #e91e63;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #fce4ec;
+            padding-bottom: 10px;
+            font-family: 'Dancing Script', cursive;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        ul li::before {
+            content: '💖';
+            position: absolute;
+            left: 0;
+            color: #e91e63;
+        }
+        .date-idea {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fce4ec;
+            border-radius: 10px;
+        }
+        .date-idea img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+        .date-idea div {
+            flex: 1;
+        }
+        .btn {
+            display: inline-block;
+            background: #e91e63;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 15px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-weight: 700;
+        }
+        .btn:hover {
+            background: #c2185b;
+            transform: scale(1.05);
+        }
+        #countdown {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #e91e63;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            .date-idea {
+                flex-direction: column;
+                text-align: center;
+            }
+            .date-idea img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A Special Date for You</h1>
+        <p>Planning the perfect evening to make memories that last forever.</p>
+    </header>
+
+    <div class="container">
+        <section id="introduction" class="fade-in">
+            <h2>Let's Make It Magical</h2>
+            <p>I've put together some ideas for our date. Whether it's a cozy dinner or an adventurous outing, I hope this sparks some excitement. Pick your favorite or let's customize it together!</p>
+        </section>
+
+        <section id="date-ideas" class="fade-in">
+            <h2>Date Ideas</h2>
+            <div class="date-idea">
+                <img src="https://t3.ftcdn.net/jpg/18/82/52/76/240_F_1882527643_VVLkkSpZ9bWhnYfMdzbJxUlGSrrwLru6.jpg" alt="Romantic Dinner">
+                <div>
+                    <h3>Romantic Dinner Under the Stars</h3>
+                    <p>A candlelit picnic in the park or a rooftop restaurant with city views. We'll share stories and enjoy each other's company.</p>
+                </div>
+            </div>
+            <div class="date-idea">
+                <img src="https://t4.ftcdn.net/jpg/10/67/74/17/240_F_1067741716_4Mnwc9DSgM7ik9lVeyQjWbRYSEHHon0I.jpg" alt="Hiking Adventure">
+                <div>
+                    <h3>Hiking and Sunset Views</h3>
+                    <p>Explore a scenic trail, breathe in the fresh air, and watch the sun set. Perfect for an active and intimate day.</p>
+                </div>
+            </div>
+            <div class="date-idea">
+                <img src="https://t3.ftcdn.net/jpg/18/88/55/70/240_F_1888557095_ZGg4YCdVx8VlGRnRVztBqpsVZc1teRGk.jpg" alt="Movie Night">
+                <div>
+                    <h3>Cozy Movie Night at Home</h3>
+                    <p>Popcorn, blankets, and your favorite films. We'll cuddle up and forget the world outside.</p>
+                </div>
+            </div>
+            <div class="date-idea">
+                <img src="https://t4.ftcdn.net/jpg/08/23/79/69/240_F_823796915_cvi9QUleNxJzRczcutY0MBzlCp9dWzIz.jpg" alt="Dance Class">
+                <div>
+                    <h3>Dance Class Adventure</h3>
+                    <p>Learn some salsa or swing dancing. It's fun, flirty, and a great way to get close.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="details" class="fade-in">
+            <h2>Date Details</h2>
+            <p><strong>When:</strong> [Insert Date and Time, e.g., Saturday at 7 PM]</p>
+            <p><strong>Where:</strong> [Insert Location, e.g., Your Favorite Spot or a Surprise Place]</p>
+            <p><strong>What to Bring:</strong> Your smile, comfortable clothes, and an open heart!</p>
+            <p>I'll handle the rest – just show up ready for fun.</p>
+            <a href="#rsvp" class="btn">RSVP Here</a>
+        </section>
+
+        <section id="countdown-section" class="fade-in">
+            <h2>Countdown to Our Date</h2>
+            <div id="countdown">Loading...</div>
+        </section>
+
+        <section id="message" class="fade-in">
+            <h2>A Little Note</h2>
+            <p>I'm excited to spend time with you. No matter what we do, it's about us connecting and creating new memories. Can't wait! 💕</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Romantic Date Planner. Made with love.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(section => {
+            observer.observe(section);
+        });
+        const targetDate = new Date('2023-12-25T19:00:00').getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                document.getElementById('countdown').innerHTML = "It's time for our date!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
